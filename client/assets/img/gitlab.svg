@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="レイヤー_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 337.6 311" style="enable-background:new 0 0 337.6 311;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#E24329;}
+	.st1{fill:#FCA326;}
+	.st2{fill:#FC6D26;}
+	.st3{display:none;}
+	.st4{display:inline;opacity:0.1;fill:#E828E3;enable-background:new    ;}
+	.st5{display:inline;}
+</style>
+<g id="logo_art">
+	<g>
+		<path id="path50_2_" class="st0" d="M168.8,311L168.8,311L231,119.6H106.7L168.8,311L168.8,311z"/>
+		<path id="path66_6_" class="st1" d="M19.6,119.6L19.6,119.6L0.6,177.8c-1.7,5.3,0.1,11.1,4.7,14.4L168.8,311L19.6,119.6
+			L19.6,119.6z"/>
+		<path id="path74_2_" class="st0" d="M19.6,119.6h87.1L69.2,4.4c-1.9-5.9-10.3-5.9-12.3,0L19.6,119.6L19.6,119.6z"/>
+		<path id="path82_6_" class="st1" d="M318.1,119.6L318.1,119.6l18.9,58.1c1.7,5.3-0.1,11.1-4.7,14.4L168.8,311L318.1,119.6
+			L318.1,119.6z"/>
+		<path id="path86_2_" class="st0" d="M318.1,119.6H231L268.4,4.4c1.9-5.9,10.3-5.9,12.3,0L318.1,119.6L318.1,119.6z"/>
+		<polygon class="st2" points="168.8,311 231,119.6 318.1,119.6 		"/>
+		<polygon class="st2" points="168.8,311 19.6,119.6 106.7,119.6 		"/>
+	</g>
+</g>
+<g id="spacing_guides" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" class="st3">
+	<path id="path40_18_" sketch:type="MSShapeGroup" class="st4" d="M-124.2-123.5v124h586v-124H-124.2L-124.2-123.5z"/>
+	<path id="path40_16_" sketch:type="MSShapeGroup" class="st4" d="M-124.2,311.5v124h586v-124H-124.2L-124.2,311.5z"/>
+	<path id="path40_15_" sketch:type="MSShapeGroup" class="st4" d="M338,436h124v-560H338V436L338,436z"/>
+	<g class="st5">
+		<text transform="matrix(1 0 0 1 387.0621 159.3152)" style="font-family:'SourceSansPro-Semibold'; font-size:24px;">1x</text>
+	</g>
+	<g class="st5">
+		<text transform="matrix(1 0 0 1 157.0621 376.981)" style="font-family:'SourceSansPro-Semibold'; font-size:24px;">1x</text>
+	</g>
+	<g class="st5">
+		<text transform="matrix(1 0 0 1 157.0621 -58.0188)" style="font-family:'SourceSansPro-Semibold'; font-size:24px;">1x</text>
+	</g>
+	<path id="path40_5_" sketch:type="MSShapeGroup" class="st4" d="M-124.2,436h124v-560h-124V436L-124.2,436z"/>
+	<g class="st5">
+		<text transform="matrix(1 0 0 1 -72.9379 159.3152)" style="font-family:'SourceSansPro-Semibold'; font-size:24px;">1x</text>
+	</g>
+</g>
+</svg>

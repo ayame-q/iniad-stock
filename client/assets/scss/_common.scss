@@ -1,0 +1,70 @@
+/* Common Styles */
+
+@mixin media($a: false, $b: false, $c: false) {
+	$value: large;
+
+	@if ($a == $value or $b == $value or $c == $value) {
+		@media (min-width: 851px) {
+			@content;
+		}
+	}
+
+	$value: small;
+
+	@if ($a == $value or $b == $value or $c == $value) {
+		@media (max-width: 480px) {
+			@content;
+		}
+	}
+
+	$value: medium;
+
+	@if ($a == $value or $b == $value or $c == $value) {
+		@media (min-width: 481px) and (max-width: 850px) {
+			@content;
+		}
+	}
+}
+
+@import "colors";
+
+html {
+	font-family: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro", "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "メイリオ", sans-serif;
+	font-size: 16px;
+	color: $text-color;
+
+	@include media(small) {
+		font-size: 16px;
+	}
+
+	word-spacing: 1px;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+a {
+	color: $text-color;
+	cursor: pointer;
+}
+
+button {
+	cursor: pointer;
+}
+
+::placeholder {
+	color: $placeholder-color;
+}
+
+:focus {
+	outline: none;
+}
