@@ -19,28 +19,28 @@
 			<nav>
 				<search-box-view />
 				<ul>
-					<li class="active">
+					<li v-bind:class="{active: $route.name === 'index'}">
 						<nuxt-link to="/">
 							Home
 						</nuxt-link>
 					</li>
-					<li>
-						<nuxt-link to="/">
+					<li v-bind:class="{active: $route.name === 'trends'}">
+						<nuxt-link to="/trends">
 							Trends
 						</nuxt-link>
 					</li>
-					<li>
-						<nuxt-link to="/">
+					<li v-bind:class="{active: $route.name === 'recents'}">
+						<nuxt-link to="/recents">
 							Recents
 						</nuxt-link>
 					</li>
 					<li>
-						<nuxt-link to="/">
+						<nuxt-link to="/new_comments">
 							Comments
 						</nuxt-link>
 					</li>
 					<li>
-						<nuxt-link to="/">
+						<nuxt-link to="/friends">
 							Friends
 						</nuxt-link>
 					</li>

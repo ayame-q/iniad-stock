@@ -13,46 +13,46 @@
 					</nuxt-link>
 				</li>
 				<li>
-					<nuxt-link to="/">
+					<nuxt-link to="/tags">
 						タグ一覧
 					</nuxt-link>
 				</li>
 				<li>
-					<nuxt-link to="/">
+					<nuxt-link to="/mypage">
 						マイページ
 					</nuxt-link>
 				</li>
 			</ul>
 			<ul>
 				<li>
-					<nuxt-link to="/">
+					<nuxt-link to="/trends">
 						トレンド
 					</nuxt-link>
 				</li>
 				<li>
-					<nuxt-link to="/">
+					<nuxt-link to="/recents">
 						最新記事
 					</nuxt-link>
 				</li>
 				<li>
-					<nuxt-link to="/">
+					<nuxt-link to="/new_comments">
 						最近のコメント
 					</nuxt-link>
 				</li>
 				<li>
-					<nuxt-link to="/">
+					<nuxt-link to="/friends">
 						フレンド記事
 					</nuxt-link>
 				</li>
 			</ul>
 			<ul>
 				<li>
-					<nuxt-link to="/">
+					<nuxt-link to="/privacy">
 						プライバシーポリシー
 					</nuxt-link>
 				</li>
 				<li>
-					<nuxt-link to="/">
+					<nuxt-link to="/terms">
 						利用規約
 					</nuxt-link>
 				</li>
