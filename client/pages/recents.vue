@@ -19,7 +19,7 @@ export default {
 	},
 	computed: {
 		articles () {
-			return this.$store.getters['articles/getAll'].slice(4)
+			return this.$store.getters['articles/getAll']
 		},
 	},
 }
