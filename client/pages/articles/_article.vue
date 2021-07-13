@@ -2,7 +2,7 @@
 	<div class="article-wrap">
 		<article class="main-article">
 			<article-head-view v-bind:article="article" />
-			<div class="content" v-html="markedText" />
+			<div class="content" v-html="$marked(this.article.text)" />
 		</article>
 		<div class="comment_wrap">
 			<form>
@@ -36,16 +36,6 @@ export default {
 			return this.$store.getters['articles/getAll'].find((element) => {
 				return element.uuid === uuid
 			})
-		},
-		markedText () {
-			marked.setOptions({
-				breaks: true,
-				langPrefix: '',
-				highlight (code, lang) {
-					return highlightjs.highlightAuto(code, [lang]).value
-				},
-			})
-			return DOMPurify.sanitize(marked(this.article.text))
 		},
 	},
 }

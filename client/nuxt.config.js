@@ -28,7 +28,7 @@ export default {
 		{ src: '@/plugins/vue-easymde', ssr: false },
 		{ src: '@/plugins/vue-tags-input', ssr: false },
 		{ src: '@/plugins/vue-js-modal.js'},
-
+		{ src: '@/plugins/marked.js' }
 	],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components

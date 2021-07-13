@@ -6,6 +6,7 @@
 			</p>
 			<vue-easymde
 				v-bind:configs="easyMDEConfigs"
+				v-bind:preview-render="$marked"
 				v-on:initialized="easyMDEInitialized"
 				v-on:input="editorFullScreen"
 			/>
