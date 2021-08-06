@@ -7,12 +7,13 @@
 			<h2>{{ article.title }}</h2>
 			<ul class="tags">
 				<li v-for="(tag, index) of article.tags" v-bind:key="index">
-					<span>{{ tag.name }}</span>
+					<span>{{ tag }}</span>
 				</li>
 			</ul>
 			<p class="username">
-				<img v-bind:src="article.user.icon" alt="">
-				<span>{{ article.user.name }}</span>
+				<!--<img v-bind:src="article.user.icon" alt="">-->
+				<img src="/img/icon_sample.png" alt="">
+				<span>{{ article.writer.display_name }}</span>
 			</p>
 			<p class="time">
 				<time>{{ article.time }}</time>

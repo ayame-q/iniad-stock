@@ -27,7 +27,7 @@
 								{{ user.name }}
 							</p>
 							<p class="userid">
-								@{{ user.id }}
+								@{{ user.screen_name }}
 							</p>
 							<p class="follows">
 								<nuxt-link to="">

@@ -1,10 +1,11 @@
 <template>
 	<div>
-		<form v-bind:class="{fullscreen: isEditorFullScreen, optionsFolded: !isOptionsOpen}" v-on:click="editorFullScreen">
+		<form v-bind:class="{fullscreen: isEditorFullScreen, optionsFolded: !isOptionsOpen}" v-on:click="editorFullScreen" v-on:submit.prevent="submit">
 			<p class="title" v-bind:class="{fullscreen: isEditorFullScreen}">
-				<input type="text" placeholder="タイトル">
+				<input v-model="title" type="text" placeholder="タイトル">
 			</p>
 			<vue-easymde
+				v-model="text"
 				v-bind:configs="easyMDEConfigs"
 				v-bind:preview-render="$marked"
 				v-on:initialized="easyMDEInitialized"
@@ -14,10 +15,10 @@
 				<div class="fold-button" v-bind:class="{folded: !isOptionsOpen}" v-on:click="toggleOptionsOpen" />
 				<div class="tags">
 					<vue-tags-input
-						v-model="tag"
-						v-bind:tags="tags"
+						v-model="tagBuffer.tag"
+						v-bind:tags="tagBuffer.tags"
 						placeholder="タグを追加"
-						v-on:tags-changed="newTags => tags = newTags"
+						v-on:tags-changed="newTags => tagBuffer.tags = newTags"
 					/>
 				</div>
 				<p class="submit-wrap">
@@ -36,7 +37,12 @@ export default {
 	name: 'EditorView',
 	data () {
 		return {
-			tag: [],
+			title: '',
+			text: '',
+			tagBuffer: {
+				tag: '',
+				tags: [],
+			},
 			isEditorFullScreen: false,
 			isOptionsOpen: true,
 			easyMDE: null,
@@ -55,6 +61,15 @@ export default {
 				],
 			},
 		}
+	},
+	computed: {
+		tags: {
+			get () {
+				return this.tagBuffer.tags.map((item) => {
+					return item.text
+				})
+			},
+		},
 	},
 	mounted () {
 		window.addEventListener('keyup', (event) => {
@@ -81,6 +96,20 @@ export default {
 		},
 		toggleOptionsOpen () {
 			this.isOptionsOpen = !this.isOptionsOpen
+		},
+		submit () {
+			this.$http.$post('/api/articles/', {
+				title: this.title,
+				text: this.text,
+				tags: this.tags,
+			}, {
+				headers: {
+					'X-CSRFToken': this.$cookies.get('csrftoken'),
+				},
+			})
+				.then((result) => {
+					this.$router.push(`/articles/${result.uuid}`)
+				})
 		},
 	},
 }

@@ -7,10 +7,11 @@
 			<time>{{ comment.time }}</time>
 		</p>
 		<img class="arrow" src="@/assets/img/comment-arrow.svg" alt="">
-		<img class="user-icon" v-bind:src="comment.user.icon" alt="">
+		<!--<img class="user-icon" v-bind:src="comment.user.icon" alt="">-->
+		<img class="user-icon" src="/img/icon_sample.png" alt="">
 		<p class="username">
-			<nuxt-link v-bind:to="`/users/${comment.user.id}`">
-				{{ comment.user.name }}
+			<nuxt-link v-bind:to="`/users/${comment.writer.uuid}`">
+				{{ comment.writer.display_name }}
 			</nuxt-link>
 		</p>
 	</article>
@@ -18,7 +19,7 @@
 
 <script>
 export default {
-	name: 'ArticleCommentView',
+	name: 'ArticleCommentListCommentView',
 	props: {
 		comment: Object,
 	},

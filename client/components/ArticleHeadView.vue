@@ -3,15 +3,16 @@
 		<h2>{{ article.title }}</h2>
 		<ul class="tags">
 			<li v-for="(tag, index) of article.tags" v-bind:key="index">
-				<nuxt-link v-bind:to="`/tags/${tag.name}`">
-					{{ tag.name }}
+				<nuxt-link v-bind:to="`/tags/${tag}`">
+					{{ tag }}
 				</nuxt-link>
 			</li>
 		</ul>
 		<p class="username">
-			<nuxt-link v-bind:to="`/users/${article.user.id}`">
-				<img v-bind:src="article.user.icon" alt="">
-				<span>{{ article.user.name }}</span>
+			<nuxt-link v-bind:to="`/users/${article.writer.uuid}`">
+				<!--<img v-bind:src="article.user.icon" alt="">-->
+				<img src="/img/icon_sample.png" alt="">
+				<span>{{ article.writer.display_name }}</span>
 			</nuxt-link>
 		</p>
 		<p class="time">

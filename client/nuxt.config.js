@@ -61,12 +61,16 @@ export default {
 
 	// Modules: https://go.nuxtjs.dev/config-modules
 	modules: [
-		// https://go.nuxtjs.dev/axios
-		"@nuxtjs/axios",
+		// https://http.nuxtjs.org/
+		'@nuxt/http',
+		// https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt
+		'cookie-universal-nuxt',
 	],
 
-	// Axios module configuration: https://go.nuxtjs.dev/config-axios
-	axios: {},
+	// http module configuration: https://http.nuxtjs.org/options
+	http: {
+		baseURL: "http://127.0.0.1"
+	},
 
 	// Build Configuration: https://go.nuxtjs.dev/config-build
 	build: {},

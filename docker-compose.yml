@@ -9,8 +9,33 @@ services:
       - "/usr/src/app/node_modules"
     environment:
       - "PORT=3000"
+  django:
+    build: server
+    links:
+      - "postgres"
+    env_file:
+      - ".env"
+    environment:
+      - DJANGO_SETTINGS_MODULE=config.settings
+    volumes:
+      - "./server:/usr/src/app"
+  postgres:
+    image: postgres:12-alpine
+    env_file:
+      - ".env"
+    volumes:
+      - database:/var/lib/postgresql/data
+  nginx:
+    image: nginx:alpine
+    env_file:
+      - ".env"
+    volumes:
+      - "./nginx/nginx.conf:/etc/nginx/templates/default.conf.template"
+    links:
+      - "django"
+      - "nodejs"
     ports:
-      - "$PORT:3000"
+      - "$PORT:80"
 
 volumes:
   database:

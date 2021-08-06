@@ -7,7 +7,18 @@ export const state = () => ({
 ## あばうと
 DjangoでWebアプリを作ってみたんです。
 \`\`\`python
-print("やったね！！！")
+def index(request):
+    article.browsed_histories.create(
+        user=request.user if request.user.is_authenticated else None,
+        ip=get_remote_ip(request),
+        user_agent=request.META.get("HTTP_USER_AGENT"),
+        referer=request.META.get("HTTP_REFERER")
+    )
+
+    data = {
+        "article": article,
+    }
+    return render(request, "times/article.html", data)
 \`\`\`
 `,
 			tags: [

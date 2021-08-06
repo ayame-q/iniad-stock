@@ -11,16 +11,17 @@
 <script>
 export default {
 	name: 'Index',
+	async asyncData ({ $http }) {
+		const articles = await $http.$get('/api/articles/')
+		return {
+			articles,
+		}
+	},
 	head () {
 		return {
 			title: 'INIAD Stock | INIAD生の情報ストックサイト',
 			titleTemplate: '',
 		}
-	},
-	computed: {
-		articles () {
-			return this.$store.getters['articles/getAll']
-		},
 	},
 }
 </script>

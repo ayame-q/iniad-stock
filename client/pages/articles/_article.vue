@@ -2,40 +2,35 @@
 	<div class="article-wrap">
 		<article class="main-article">
 			<article-head-view v-bind:article="article" />
-			<div class="content" v-html="$marked(this.article.text)" />
+			<div class="content" v-html="$marked(article.text)" />
 		</article>
 		<div class="comment_wrap">
-			<form>
-				<p class="new-comment">
-					<input type="text" placeholder="コメントを残す">
-					<button><img src="@/assets/img/comment-submit.svg" alt="送信"></button>
-				</p>
-			</form>
-			<article-comment-view v-for="comment of article.comments" v-bind:key="comment.time" v-bind:comment="comment" />
+			<article-comment-editor-view v-bind:article-uuid="article.uuid" v-on:newComment="newComment" />
+			<article-comment-list-comment-view v-for="comment of article.comments" v-bind:key="comment.time" v-bind:comment="comment" />
 		</div>
 	</div>
 </template>
 
 <script>
-import DOMPurify from 'dompurify'
-import marked from 'marked'
-import highlightjs from 'highlight.js'
 import 'highlight.js/styles/github.css'
 
 export default {
 	name: 'ArticlePage',
 	layout: 'article',
+	async asyncData ({ params, $http }) {
+		const article = await $http.$get(`/api/articles/${params.article}`)
+		return {
+			article,
+		}
+	},
 	head () {
 		return {
 			title: this.article.title,
 		}
 	},
-	computed: {
-		article () {
-			const uuid = this.$route.params.article
-			return this.$store.getters['articles/getAll'].find((element) => {
-				return element.uuid === uuid
-			})
+	methods: {
+		newComment (comment) {
+
 		},
 	},
 }
@@ -74,28 +69,6 @@ export default {
 		flex-shrink: 0;
 		flex-grow: 0;
 		position: relative;
-
-		.new-comment {
-			position: relative;
-
-			input {
-				width: 100%;
-				padding: 10px;
-				padding-right: 33px;
-				border: $main-color 1px solid;
-				border-radius: 12px;
-				margin-bottom: 24px;
-			}
-
-			button {
-				display: block;
-				position: absolute;
-				background-color: transparent;
-				border: none;
-				top: 8px;
-				right: 3px;
-			}
-		}
 	}
 }
 
