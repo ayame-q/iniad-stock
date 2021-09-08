@@ -53,6 +53,8 @@ article.comment {
 
 	.content {
 		font-size: 0.8em;
+		white-space: pre-line;
+		word-wrap: break-word;
 	}
 
 	.time {
