@@ -37,7 +37,8 @@ article.comment {
 	position: relative;
 	border: $main-color 1px solid;
 	border-radius: 12px;
-	padding: 12px;
+	background-color: #fff;
+	padding: 10px;
 	margin-bottom: 60px;
 
 	h1,
@@ -48,6 +49,10 @@ article.comment {
 	h6,
 	p {
 		margin: 0.5rem 0;
+	}
+
+	.content {
+		font-size: 0.8em;
 	}
 
 	.time {
@@ -82,6 +87,10 @@ article.comment {
 		right: 50px;
 		top: calc(100% + 26px);
 		margin: 0;
+
+		a {
+			color: #fff;
+		}
 	}
 }
 </style>

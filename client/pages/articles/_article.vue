@@ -63,12 +63,19 @@ export default {
 	}
 
 	.comment_wrap {
-		padding-right: 30px;
-		padding-left: 20px;
-		width: $side-width;
+		margin-left: 20px;
+		padding: 20px;
+		border-top-left-radius: 20px;
+		border-bottom-left-radius: 20px;
+		width: calc(#{$side-width} - 20px);
+		background-color: $box-color;
 		flex-shrink: 0;
 		flex-grow: 0;
-		position: relative;
+		position: sticky;
+		max-height: calc(100vh - 6rem - 3rem - 1rem);
+		top: 5rem;
+		right: 0;
+		overflow-y: scroll;
 	}
 }
 
