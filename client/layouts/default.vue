@@ -4,7 +4,7 @@
 			<div class="title-column">
 				<h1>
 					<nuxt-link to="/">
-						<img src="@/assets/img/logo-small.svg" alt="INIAD Stock">
+						<img v-bind:src="logoSmall" alt="INIAD Stock">
 					</nuxt-link>
 				</h1>
 			</div>
@@ -21,33 +21,38 @@
 				<ul>
 					<li v-bind:class="{active: $route.name === 'index'}">
 						<nuxt-link to="/">
+							<HomeSvg />
 							Home
 						</nuxt-link>
 					</li>
 					<li v-bind:class="{active: $route.name === 'trends'}">
 						<nuxt-link to="/trends">
+							<TrendSvg />
 							Trends
 						</nuxt-link>
 					</li>
 					<li v-bind:class="{active: $route.name === 'recents'}">
 						<nuxt-link to="/recents">
+							<RecentsSvg />
 							Recents
 						</nuxt-link>
 					</li>
 					<li>
 						<nuxt-link to="/new_comments">
+							<CommentSvg />
 							Comments
 						</nuxt-link>
 					</li>
 					<li>
 						<nuxt-link to="/friends">
+							<FriendsSvg />
 							Friends
 						</nuxt-link>
 					</li>
 				</ul>
 				<p class="title-logo">
 					<nuxt-link to="/">
-						<img src="@/assets/img/logo-title.svg">
+						<img v-bind:src="logoTitle" alt="INIAD Stock">
 					</nuxt-link>
 				</p>
 			</nav>
@@ -69,8 +74,30 @@
 </template>
 
 <script>
+import LogoSmall from '@/assets/img/logo-small.svg'
+import LogoTitle from '@/assets/img/logo-title.svg'
+import HomeSvg from '@/assets/img/home.svg?inline'
+import TrendSvg from '@/assets/img/trend.svg?inline'
+import RecentsSvg from '@/assets/img/recents.svg?inline'
+import CommentSvg from '@/assets/img/comment.svg?inline'
+import FriendsSvg from '@/assets/img/friends.svg?inline'
 export default {
 	name: 'DefaultLayout',
+	components: {
+		HomeSvg,
+		TrendSvg,
+		RecentsSvg,
+		CommentSvg,
+		FriendsSvg,
+	},
+	computed: {
+		logoSmall () {
+			return LogoSmall
+		},
+		logoTitle () {
+			return LogoTitle
+		},
+	},
 }
 </script>
 
@@ -146,9 +173,21 @@ header {
 
 				a {
 					text-decoration: none;
+					display: flex;
+					align-items: center;
+
+					svg {
+						height: 1.5em;
+						margin-right: 0.7em;
+						fill: $text-color;
+					}
 
 					&:hover {
 						color: $sub-color;
+
+						svg {
+							fill: $sub-color;
+						}
 					}
 				}
 
@@ -162,6 +201,10 @@ header {
 
 					a {
 						color: $sub-color;
+
+						svg {
+							fill: $sub-color;
+						}
 					}
 				}
 			}

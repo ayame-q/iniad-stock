@@ -2,14 +2,20 @@
 	<form>
 		<p class="search-box">
 			<input type="search">
-			<button><img src="@/assets/img/search-white.svg" alt="検索"></button>
+			<button><img v-bind:src="searchWhite" alt="検索"></button>
 		</p>
 	</form>
 </template>
 
 <script>
+import SearchWhite from '@/assets/img/search-white.svg'
 export default {
 	name: 'SearchBoxView',
+	computed: {
+		searchWhite () {
+			return SearchWhite
+		},
+	},
 }
 </script>
 

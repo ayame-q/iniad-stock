@@ -2,12 +2,13 @@
 	<form v-on:submit.prevent="submit">
 		<p class="new-comment">
 			<textarea v-model="text" placeholder="コメントを残す" v-on:input="resizeTextArea" />
-			<button><img src="@/assets/img/comment-submit.svg" alt="送信"></button>
+			<button><img v-bind:src="commentSubmitSvg" alt="送信"></button>
 		</p>
 	</form>
 </template>
 
 <script>
+import CommentSubmitSvg from '@/assets/img/comment-submit.svg'
 export default {
 	name: 'ArticleCommentEditorView',
 	props: {
@@ -17,6 +18,11 @@ export default {
 		return {
 			text: '',
 		}
+	},
+	computed: {
+		commentSubmitSvg () {
+			return CommentSubmitSvg
+		},
 	},
 	methods: {
 		resizeTextArea (event) {

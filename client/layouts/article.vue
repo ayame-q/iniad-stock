@@ -4,7 +4,7 @@
 			<div class="title-column">
 				<h1>
 					<nuxt-link to="/">
-						<img src="@/assets/img/logo.svg" alt="INIAD Stock">
+						<img v-bind:src="logoSvg" alt="INIAD Stock">
 					</nuxt-link>
 				</h1>
 			</div>
@@ -18,19 +18,34 @@
 		<div class="main-wrap">
 			<nav>
 				<ul>
-					<li>
+					<li class="search-box-toggle-button">
 						<a v-on:click="toggleSearchBoxActive">
-							<img src="@/assets/img/search.svg" alt="Search">
+							<search-svg />
 						</a>
 					</li>
 					<li>
 						<nuxt-link to="/">
-							<img src="@/assets/img/home.svg" alt="Home">
+							<HomeSvg />
 						</nuxt-link>
 					</li>
 					<li>
 						<nuxt-link to="/trends">
-							<img src="@/assets/img/trend.svg">
+							<TrendSvg />
+						</nuxt-link>
+					</li>
+					<li>
+						<nuxt-link to="/recents">
+							<RecentsSvg />
+						</nuxt-link>
+					</li>
+					<li>
+						<nuxt-link to="/new_comments">
+							<CommentSvg />
+						</nuxt-link>
+					</li>
+					<li>
+						<nuxt-link to="/friends">
+							<FriendsSvg />
 						</nuxt-link>
 					</li>
 				</ul>
@@ -47,12 +62,32 @@
 </template>
 
 <script>
+import LogoSvg from '@/assets/img/logo.svg'
+import SearchSvg from '@/assets/img/search.svg?inline'
+import HomeSvg from '@/assets/img/home.svg?inline'
+import TrendSvg from '@/assets/img/trend.svg?inline'
+import RecentsSvg from '@/assets/img/recents.svg?inline'
+import CommentSvg from '@/assets/img/comment.svg?inline'
+import FriendsSvg from '@/assets/img/friends.svg?inline'
 export default {
 	name: 'ArticleLayout',
+	components: {
+		SearchSvg,
+		HomeSvg,
+		TrendSvg,
+		RecentsSvg,
+		CommentSvg,
+		FriendsSvg,
+	},
 	data () {
 		return {
 			isSearchBoxActive: false,
 		}
+	},
+	computed: {
+		logoSvg () {
+			return LogoSvg
+		},
 	},
 	methods: {
 		toggleSearchBoxActive () {
@@ -172,8 +207,16 @@ header {
 				a {
 					text-decoration: none;
 
+					svg {
+						fill: $text-color;
+					}
+
 					&:hover {
 						color: $sub-color;
+
+						svg {
+							fill: $sub-color;
+						}
 					}
 				}
 
@@ -187,6 +230,14 @@ header {
 
 					a {
 						color: $sub-color;
+					}
+				}
+
+				&.search-box-toggle-button {
+					a {
+						svg {
+							fill: $sub-color;
+						}
 					}
 				}
 			}

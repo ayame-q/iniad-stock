@@ -3,7 +3,7 @@
 		<nav>
 			<p class="logo">
 				<nuxt-link to="/">
-					<img src="@/assets/img/logo-white.svg" alt="INIAD Stock">
+					<img v-bind:src="logoWhite" alt="INIAD Stock">
 				</nuxt-link>
 			</p>
 			<ul>
@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<p class="footer-bottom twitter">
-			<a href="https://twitter.com/INIADStock"><img src="@/assets/img/twitter-white.svg" alt="INIAD Stock 公式Twitter"></a>
+			<a href="https://twitter.com/INIADStock"><img v-bind:src="twitterWhite" alt="INIAD Stock 公式Twitter"></a>
 		</p>
 		<p class="footer-bottom">
 			<small>&copy; 2021 INIAD Stock</small>
@@ -73,8 +73,18 @@
 </template>
 
 <script>
+import LogoWhite from '@/assets/img/logo-white.svg'
+import TwitterWhite from '@/assets/img/twitter-white.svg'
 export default {
 	name: 'FooterView',
+	computed: {
+		logoWhite () {
+			return LogoWhite
+		},
+		twitterWhite () {
+			return TwitterWhite
+		},
+	},
 }
 </script>
 

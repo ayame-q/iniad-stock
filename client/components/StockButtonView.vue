@@ -31,6 +31,7 @@ button {
 	background-color: transparent;
 	background-image: url("~/assets/img/stock-false.svg");
 	background-size: 100%;
+	background-repeat: no-repeat;
 
 	&:hover {
 		background-image: url("~/assets/img/stock-hover.svg");

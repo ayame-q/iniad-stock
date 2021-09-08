@@ -4,7 +4,7 @@
 			<div class="title-column">
 				<h1>
 					<nuxt-link to="/">
-						<img src="@/assets/img/logo-small.svg" alt="INIAD Stock">
+						<img v-bind:src="logoSmall" alt="INIAD Stock">
 					</nuxt-link>
 				</h1>
 			</div>
@@ -43,10 +43,10 @@
 						<p>{{ user.comment }}</p>
 					</div>
 					<ul class="links">
-						<li><a href=""><img src="@/assets/img/github.svg" alt="github" class="github"></a></li>
-						<li><a href=""><img src="@/assets/img/gitlab.svg" alt="gitlab" class="gitlab"></a></li>
-						<li><a href=""><img src="@/assets/img/twitter.svg" alt="twitter" class="twitter"></a></li>
-						<li><a href=""><img src="@/assets/img/link.svg" alt="link" class="link"></a></li>
+						<li><a href=""><img v-bind:src="githubSvg" alt="github" class="github"></a></li>
+						<li><a href=""><img v-bind:src="gitlabSvg" alt="gitlab" class="gitlab"></a></li>
+						<li><a href=""><img v-bind:src="twitterSvg" alt="twitter" class="twitter"></a></li>
+						<li><a href=""><img v-bind:src="linkSvg" alt="link" class="link"></a></li>
 					</ul>
 					<div v-if="$route.name !== 'mypage'" class="follow">
 						<p><button>フォロー</button></p>
@@ -63,21 +63,25 @@
 					<ul>
 						<li v-if="$route.path.startsWith('/mypage')" v-bind:class="{active: $route.name === 'mypage'}">
 							<nuxt-link to="/mypage">
+								<MyPageSvg />
 								MyPage
 							</nuxt-link>
 						</li>
 						<li v-if="$route.path.startsWith('/mypage')">
 							<nuxt-link to="/mypage/drafts">
+								<DraftsSvg />
 								Drafts
 							</nuxt-link>
 						</li>
 						<li>
 							<nuxt-link to="/">
+								<PostsSvg />
 								Posts
 							</nuxt-link>
 						</li>
 						<li>
 							<nuxt-link to="/">
+								<StockedSvg />
 								Stocked
 							</nuxt-link>
 						</li>
@@ -85,7 +89,7 @@
 					<search-box-view />
 					<p class="title-logo">
 						<nuxt-link to="/">
-							<img src="@/assets/img/logo-title.svg">
+							<img v-bind:src="logoTitle" alt="INIAD Stock">
 						</nuxt-link>
 					</p>
 				</nav>
@@ -108,14 +112,50 @@
 </template>
 
 <script>
+import LogoSmall from '@/assets/img/logo-small.svg'
+import MyPageSvg from '@/assets/img/mypage.svg?inline'
+import DraftsSvg from '@/assets/img/drafts.svg?inline'
+import PostsSvg from '@/assets/img/posts.svg?inline'
+import StockedSvg from '@/assets/img/stocked.svg?inline'
+import GithubSvg from '@/assets/img/github.svg'
+import GitlabSvg from '@/assets/img/gitlab.svg'
+import TwitterSvg from '@/assets/img/twitter.svg'
+import LinkSvg from '@/assets/img/link.svg'
+import LogoTitle from '~/assets/img/logo-title.svg'
 import UserProfileEditView from '~/components/UserProfileEditView'
 
 export default {
 	name: 'UserLayout',
+	components: {
+		MyPageSvg,
+		DraftsSvg,
+		PostsSvg,
+		StockedSvg,
+	},
 	data () {
 		return {
 			user: {},
 		}
+	},
+	computed: {
+		logoSmall () {
+			return LogoSmall
+		},
+		logoTitle () {
+			return LogoTitle
+		},
+		githubSvg () {
+			return GithubSvg
+		},
+		gitlabSvg () {
+			return GitlabSvg
+		},
+		twitterSvg () {
+			return TwitterSvg
+		},
+		linkSvg () {
+			return LinkSvg
+		},
 	},
 	created () {
 		this.$nuxt.$on('updateUser', (user) => {
@@ -329,9 +369,21 @@ header {
 
 					a {
 						text-decoration: none;
+						display: flex;
+						align-items: center;
+
+						svg {
+							height: 1.5em;
+							margin-right: 0.7em;
+							fill: $text-color;
+						}
 
 						&:hover {
 							color: $sub-color;
+
+							svg {
+								fill: $sub-color;
+							}
 						}
 					}
 
@@ -345,6 +397,10 @@ header {
 
 						a {
 							color: $sub-color;
+
+							svg {
+								fill: $sub-color;
+							}
 						}
 					}
 				}

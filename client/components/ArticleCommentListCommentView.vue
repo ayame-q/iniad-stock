@@ -6,7 +6,7 @@
 		<p class="time">
 			<time>{{ comment.time }}</time>
 		</p>
-		<img class="arrow" src="@/assets/img/comment-arrow.svg" alt="">
+		<img class="arrow" v-bind:src="commentArrowSvg" alt="">
 		<!--<img class="user-icon" v-bind:src="comment.user.icon" alt="">-->
 		<img class="user-icon" src="/img/icon_sample.png" alt="">
 		<p class="username">
@@ -18,10 +18,16 @@
 </template>
 
 <script>
+import CommentArrowSvg from '@/assets/img/comment-arrow.svg'
 export default {
 	name: 'ArticleCommentListCommentView',
 	props: {
 		comment: Object,
+	},
+	computed: {
+		commentArrowSvg () {
+			return CommentArrowSvg
+		},
 	},
 }
 </script>
