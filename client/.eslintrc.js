@@ -23,6 +23,7 @@ module.exports = {
 		"vue/v-bind-style": ["error", "longform"],
 		"vue/v-on-style": ["error", "longform"],
 		"vue/no-v-html": 0,
+		"vue/no-unused-components": 1,
 		"comma-dangle": ["error", "always-multiline"],
 	},
 };
