@@ -69,7 +69,7 @@ export default {
 
 	// http module configuration: https://http.nuxtjs.org/options
 	http: {
-		baseURL: "http://127.0.0.1"
+		baseURL: "/"
 	},
 
 	// Middlewares: https://nuxtjs.org/ja/docs/directory-structure/middleware/
