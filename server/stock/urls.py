@@ -20,10 +20,12 @@ from . import views
 
 router = DefaultRouter()
 router.register('articles', views.ArticleViewSet)
+router.register('comments', views.CommentViewSet)
+router.register(r'articles/(?P<article_uuid>[^/.]+)/comments', views.CommentViewSet)
 router.register('users', views.ProfileViewSet)
 router.register('tags', views.TagViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('my_user', views.MyUserAPIView.as_view(), name="my-user")
+    path('my_user', views.MyUserAPIView.as_view(), name="my-user"),
 ]

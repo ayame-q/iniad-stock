@@ -2,7 +2,7 @@
 	<form class="profile-edit">
 		<div class="about">
 			<p class="user-icon">
-				<img src="/img/icon_sample.png" alt="">
+				<img src="/img/user_icon_1.svg" alt="">
 			</p>
 			<div class="user-meta">
 				<p class="username">

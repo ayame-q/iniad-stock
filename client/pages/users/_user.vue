@@ -1,10 +1,6 @@
 <template>
 	<div class="article-list">
-		<article-list-article-view
-			v-for="article of user.articles"
-			v-bind:key="article.time"
-			v-bind:article="article"
-		/>
+		<article-list-view v-model="user.articles" />
 	</div>
 </template>
 
@@ -20,7 +16,7 @@ export default {
 	},
 	head () {
 		return {
-			title: `${this.user.name}さんのユーザーページ`,
+			title: `${this.user.display_name}さんのユーザーページ`,
 		}
 	},
 	mounted () {

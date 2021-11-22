@@ -5,18 +5,34 @@
 <script>
 export default {
 	name: 'StockButtonView',
-	/* props: {
+	props: {
 		value: Boolean,
-	}, */
+		articleUuid: String,
+	},
+	/*
 	data () {
 		return {
 			value: false,
 		}
-	},
+	}, */
 	methods: {
-		stock () {
-			// this.$emit('change', !this.value)
-			this.value = !this.value
+		async stock () {
+			let promise
+			if (!this.value) {
+				promise = await this.$http.post(`/api/articles/${this.articleUuid}/stock/`, {}, {
+					headers: {
+						'X-CSRFToken': this.$cookies.get('csrftoken'),
+					},
+				})
+			} else {
+				promise = await this.$http.delete(`/api/articles/${this.articleUuid}/stock/`, {
+					headers: {
+						'X-CSRFToken': this.$cookies.get('csrftoken'),
+					},
+				})
+			}
+			const article = await promise.json()
+			this.$emit('input', article.article.is_stocked)
 		},
 	},
 }

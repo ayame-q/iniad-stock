@@ -72,6 +72,14 @@ export default {
 		baseURL: "http://127.0.0.1"
 	},
 
+	// Middlewares: https://nuxtjs.org/ja/docs/directory-structure/middleware/
+	router: {
+		middleware: [
+			"getMyUser",
+			"initializeMyUser"
+		],
+	},
+
 	// Build Configuration: https://go.nuxtjs.dev/config-build
 	build: {
 		// Vue Svg Loader https://github.com/visualfanatic/vue-svg-loader

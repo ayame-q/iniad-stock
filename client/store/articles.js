@@ -27,6 +27,13 @@ def index(request):
 			],
 			user: {
 				name: 'たろう',
+				display_name: 'たろう',
+				id: 'taro',
+				icon: '/img/icon_sample.png',
+			},
+			writer: {
+				name: 'たろう',
+				display_name: 'たろう',
 				id: 'taro',
 				icon: '/img/icon_sample.png',
 			},
@@ -36,6 +43,7 @@ def index(request):
 					text: 'やったね',
 					user: {
 						name: '花子',
+						display_name: '花子',
 						id: 'hanako',
 						icon: '/img/icon_sample.png',
 					},
@@ -45,6 +53,7 @@ def index(request):
 					text: 'おめでとう',
 					user: {
 						name: 'けん',
+						display_name: 'けん',
 						id: 'ken',
 						icon: '/img/icon_sample.png',
 					},
@@ -62,6 +71,7 @@ def index(request):
 			],
 			user: {
 				name: '花子',
+				display_name: '花子',
 				id: 'hanako',
 				icon: '/img/icon_sample.png',
 			},
@@ -71,6 +81,7 @@ def index(request):
 					text: 'すごい！',
 					user: {
 						name: 'たろう',
+						display_name: 'たろう',
 						id: 'taro',
 						icon: '/img/icon_sample.png',
 					},
@@ -87,6 +98,7 @@ def index(request):
 			],
 			user: {
 				name: 'けん',
+				display_name: 'けん',
 				id: 'ken',
 				icon: '/img/icon_sample.png',
 			},
@@ -96,6 +108,7 @@ def index(request):
 					text: '明けない夜はないんですね。感動しました。',
 					user: {
 						name: 'たろう',
+						display_name: 'たろう',
 						id: 'taro',
 						icon: '/img/icon_sample.png',
 					},
@@ -112,6 +125,7 @@ def index(request):
 			],
 			user: {
 				name: '花子',
+				display_name: '花子',
 				id: 'hanako',
 				icon: '/img/icon_sample.png',
 			},
@@ -121,6 +135,7 @@ def index(request):
 					text: 'おいしそう・・・。',
 					user: {
 						name: 'けん',
+						display_name: 'けん',
 						id: 'ken',
 						icon: '/img/icon_sample.png',
 					},
@@ -137,6 +152,13 @@ def index(request):
 			],
 			user: {
 				name: 'たろう',
+				display_name: 'たろう',
+				id: 'taro',
+				icon: '/img/icon_sample.png',
+			},
+			writer: {
+				name: 'たろう',
+				display_name: 'たろう',
 				id: 'taro',
 				icon: '/img/icon_sample.png',
 			},
@@ -146,6 +168,7 @@ def index(request):
 					text: '助かります！',
 					user: {
 						name: '花子',
+						display_name: '花子',
 						id: 'hanako',
 						icon: '/img/icon_sample.png',
 					},

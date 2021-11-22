@@ -32,8 +32,7 @@ export default {
 			event.target.style.height = height + 'px'
 		},
 		submit () {
-			this.$http.$post('/api/comments/', {
-				article: this.articleUuid,
+			this.$http.$post(`/api/articles/${this.articleUuid}/comments/`, {
 				text: this.text,
 			}, {
 				headers: {
@@ -41,6 +40,7 @@ export default {
 				},
 			})
 				.then((result) => {
+					this.text = ''
 					this.$emit('newComment', result)
 				})
 		},

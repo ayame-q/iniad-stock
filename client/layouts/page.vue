@@ -66,6 +66,7 @@ import RecentsSvg from '@/assets/img/recents.svg?inline'
 import CommentSvg from '@/assets/img/comment.svg?inline'
 import FriendsSvg from '@/assets/img/friends.svg?inline'
 import LogoSvg from '~/assets/img/logo.svg'
+import initializeMyUser from '~/mixins/initializeMyUser'
 
 export default {
 	name: 'PageLayout',
@@ -77,6 +78,7 @@ export default {
 		CommentSvg,
 		FriendsSvg,
 	},
+	mixins: [initializeMyUser],
 	computed: {
 		logoSvg () {
 			return LogoSvg

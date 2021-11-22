@@ -20,11 +20,11 @@
 				<div class="profile">
 					<div class="about">
 						<p class="user-icon">
-							<img src="/img/icon_sample.png" alt="">
+							<img src="/img/user_icon_1.svg" alt="">
 						</p>
 						<div class="user-meta">
 							<p class="username">
-								{{ user.name }}
+								{{ user.display_name }}
 							</p>
 							<p class="userid">
 								@{{ user.screen_name }}
@@ -62,7 +62,7 @@
 				<nav>
 					<ul>
 						<li v-if="$route.path.startsWith('/mypage')" v-bind:class="{active: $route.name === 'mypage'}">
-							<nuxt-link to="/mypage">
+							<nuxt-link to="/mypage/">
 								<MyPageSvg />
 								MyPage
 							</nuxt-link>
@@ -80,7 +80,7 @@
 							</nuxt-link>
 						</li>
 						<li>
-							<nuxt-link to="/">
+							<nuxt-link to="./stocked">
 								<StockedSvg />
 								Stocked
 							</nuxt-link>
@@ -99,9 +99,9 @@
 			</main>
 			<div class="tag-list">
 				<ul>
-					<li>
-						<nuxt-link to="/">
-							タグ1
+					<li v-for="tag of tags" v-bind:key="tag.uuid">
+						<nuxt-link v-bind:to="`/tags/${tag.uuid}`">
+							{{ tag.name }}
 						</nuxt-link>
 					</li>
 				</ul>
@@ -123,6 +123,7 @@ import TwitterSvg from '@/assets/img/twitter.svg'
 import LinkSvg from '@/assets/img/link.svg'
 import LogoTitle from '~/assets/img/logo-title.svg'
 import UserProfileEditView from '~/components/UserProfileEditView'
+import initializeMyUser from '~/mixins/initializeMyUser'
 
 export default {
 	name: 'UserLayout',
@@ -132,9 +133,20 @@ export default {
 		PostsSvg,
 		StockedSvg,
 	},
+	mixins: [initializeMyUser],
 	data () {
 		return {
 			user: {},
+			tags: [],
+		}
+	},
+	async fetch () {
+		if (!this.tags) {
+			const response = await this.$http.get('/api/tags/')
+			const tags = await response.json()
+			if (!this.tags) {
+				this.tags = tags
+			}
 		}
 	},
 	computed: {
@@ -160,6 +172,7 @@ export default {
 	created () {
 		this.$nuxt.$on('updateUser', (user) => {
 			this.user = user
+			this.tags = user.used_tags
 		})
 	},
 	methods: {

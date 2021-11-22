@@ -6,11 +6,11 @@
 
 <script>
 export default {
-	name: 'Mypage',
+	name: 'Stocked',
 	layout: 'user',
 	head () {
 		return {
-			title: 'マイページ',
+			title: 'ストックした記事 - マイページ',
 		}
 	},
 	computed: {
@@ -19,10 +19,10 @@ export default {
 		},
 		articles: {
 			get () {
-				return this.$store.getters['myUser/getMyArticle']
+				return this.$store.getters['myUser/getMyStocks']
 			},
 			set (input) {
-				this.$store.commit('myUser/updateArticles', input)
+				this.$store.commit('myUser/updateStocks', input)
 			},
 		},
 	},

@@ -61,9 +61,9 @@
 			</main>
 			<div class="tag-list">
 				<ul>
-					<li>
-						<nuxt-link to="/">
-							タグ1
+					<li v-for="tag of tags" v-bind:key="tag.uuid">
+						<nuxt-link v-bind:to="`/tags/${tag.uuid}`">
+							{{ tag.name }}
 						</nuxt-link>
 					</li>
 				</ul>
@@ -81,6 +81,7 @@ import TrendSvg from '@/assets/img/trend.svg?inline'
 import RecentsSvg from '@/assets/img/recents.svg?inline'
 import CommentSvg from '@/assets/img/comment.svg?inline'
 import FriendsSvg from '@/assets/img/friends.svg?inline'
+import initializeMyUser from '~/mixins/initializeMyUser'
 export default {
 	name: 'DefaultLayout',
 	components: {
@@ -89,6 +90,16 @@ export default {
 		RecentsSvg,
 		CommentSvg,
 		FriendsSvg,
+	},
+	mixins: [initializeMyUser],
+	data () {
+		return {
+			tags: [],
+		}
+	},
+	async fetch () {
+		const response = await this.$http.get('/api/tags/')
+		this.tags = await response.json()
 	},
 	computed: {
 		logoSmall () {

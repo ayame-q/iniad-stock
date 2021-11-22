@@ -11,7 +11,7 @@
 		<p class="username">
 			<nuxt-link v-bind:to="`/users/${article.writer.uuid}`">
 				<!--<img v-bind:src="article.user.icon" alt="">-->
-				<img src="/img/icon_sample.png" alt="">
+				<img src="/img/user_icon_1.svg" alt="">
 				<span>{{ article.writer.display_name }}</span>
 			</nuxt-link>
 		</p>
@@ -19,7 +19,7 @@
 			<time>{{ article.time }}</time>
 		</p>
 		<div class="stock-button">
-			<stock-button-view />
+			<stock-button-view v-model="article.is_stocked" v-bind:article-uuid="article.uuid" />
 		</div>
 	</header>
 </template>
@@ -28,7 +28,17 @@
 export default {
 	name: 'ArticleHeadView',
 	props: {
-		article: Object,
+		value: Object,
+	},
+	computed: {
+		article: {
+			get () {
+				return this.value
+			},
+			set (input) {
+				this.$emit('input', input)
+			},
+		},
 	},
 }
 </script>

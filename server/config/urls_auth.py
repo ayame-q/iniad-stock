@@ -1,7 +1,11 @@
 from importlib import import_module
+from allauth.account.views import LogoutView
 from allauth.socialaccount import providers
+from django.urls import path
 
-urlpatterns = []
+urlpatterns = [
+    path("logout", LogoutView.as_view(), name="logout")
+]
 
 # Provider urlpatterns, as separate attribute (for reusability).
 provider_urlpatterns = []

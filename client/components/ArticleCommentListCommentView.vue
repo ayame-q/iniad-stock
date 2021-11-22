@@ -8,7 +8,7 @@
 		</p>
 		<img class="arrow" v-bind:src="commentArrowSvg" alt="">
 		<!--<img class="user-icon" v-bind:src="comment.user.icon" alt="">-->
-		<img class="user-icon" src="/img/icon_sample.png" alt="">
+		<img class="user-icon" src="/img/user_icon_1.svg" alt="">
 		<p class="username">
 			<nuxt-link v-bind:to="`/users/${comment.writer.uuid}`">
 				{{ comment.writer.display_name }}

@@ -1,7 +1,7 @@
 <template>
 	<div class="article-wrap">
 		<article class="main-article">
-			<article-head-view v-bind:article="article" />
+			<article-head-view v-model="article" />
 			<div class="content" v-html="$marked(article.text)" />
 		</article>
 		<div class="comment_wrap">
@@ -30,7 +30,7 @@ export default {
 	},
 	methods: {
 		newComment (comment) {
-
+			this.article.comments.unshift(comment)
 		},
 	},
 }

@@ -1,14 +1,14 @@
 <template>
 	<div class="user-wrap">
-		<div class="username">
+		<div v-if="isAuthenticated" class="username">
 			<nuxt-link to="/mypage">
 				<span>{{ myUserName }}</span>
-				<img src="/img/icon_sample.png" alt="">
+				<img src="/img/user_icon_1.svg" alt="">
 			</nuxt-link>
 			<nav class="user-menu">
 				<ul>
 					<li>
-						<nuxt-link to="/mypage">
+						<nuxt-link to="/mypage/">
 							マイページ
 						</nuxt-link>
 					</li>
@@ -20,12 +20,17 @@
 					</li>
 					-->
 					<li>
-						<nuxt-link to="/logout">
+						<nuxt-link to="/auth/logout">
 							ログアウト
 						</nuxt-link>
 					</li>
 				</ul>
 			</nav>
+		</div>
+		<div v-else class="login">
+			<a href="/auth/iniad/login">
+				ログイン&新規登録
+			</a>
 		</div>
 	</div>
 </template>
@@ -34,8 +39,11 @@
 export default {
 	name: 'HeaderUserView',
 	computed: {
+		isAuthenticated () {
+			return this.$store.getters['myUser/get'].is_authenticated
+		},
 		myUserName () {
-			return this.$store.getters['myUser/get'].name
+			return this.$store.getters['myUser/get'].display_name
 		},
 	},
 }
@@ -46,7 +54,8 @@ export default {
 	position: relative;
 	z-index: 1;
 
-	.username {
+	.username,
+	.login {
 		a {
 			display: flex;
 			align-items: center;

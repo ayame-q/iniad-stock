@@ -12,7 +12,7 @@
 			</ul>
 			<p class="username">
 				<!--<img v-bind:src="article.user.icon" alt="">-->
-				<img src="/img/icon_sample.png" alt="">
+				<img src="/img/user_icon_1.svg" alt="">
 				<span>{{ article.writer.display_name }}</span>
 			</p>
 			<p class="time">
@@ -20,7 +20,7 @@
 			</p>
 		</nuxt-link>
 		<div class="stock-button">
-			<stock-button-view />
+			<stock-button-view v-model="isStocked" v-bind:article-uuid="article.uuid" />
 		</div>
 	</article>
 </template>
@@ -30,6 +30,18 @@ export default {
 	name: 'ArticleListArticleView',
 	props: {
 		article: Object,
+	},
+	computed: {
+		isStocked: {
+			get () {
+				return this.article.is_stocked
+			},
+			set (value) {
+				const article = Object.assign({}, this.article)
+				article.is_stocked = value
+				this.$emit('updateArticle', article)
+			},
+		},
 	},
 }
 </script>
