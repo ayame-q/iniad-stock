@@ -53,6 +53,8 @@ class ArticleSerializer(serializers.ModelSerializer):
             profile = self.context['request'].user.stock_profile
         except KeyError:
             return None
+        except AttributeError:
+            return None
         try:
             profile.stocks.get(pk=obj.pk)
             return True
