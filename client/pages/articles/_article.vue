@@ -48,6 +48,8 @@ export default {
 		height: 100%;
 		padding: 0 1.5rem;
 		padding-bottom: 1rem;
+		overflow-wrap: anywhere;
+		min-width: 0;
 
 		.content {
 			h1,
@@ -60,6 +62,10 @@ export default {
 				margin: 1em 0;
 			}
 		}
+
+		pre {
+			overflow-x: scroll;
+		}
 	}
 
 	.comment_wrap {
@@ -67,7 +73,7 @@ export default {
 		padding: 20px;
 		border-top-left-radius: 20px;
 		border-bottom-left-radius: 20px;
-		width: calc(#{$side-width} - 20px);
+		flex-basis: calc(#{$side-width} - 20px);
 		background-color: $box-color;
 		flex-shrink: 0;
 		flex-grow: 0;
