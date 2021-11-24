@@ -1,7 +1,7 @@
 <template>
 	<div class="user-wrap">
 		<div v-if="isAuthenticated" class="username">
-			<nuxt-link to="/mypage">
+			<nuxt-link to="/mypage/">
 				<span>{{ myUserName }}</span>
 				<img src="/img/user_icon_1.svg" alt="">
 			</nuxt-link>
